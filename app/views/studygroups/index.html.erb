@@ -1,0 +1,33 @@
+<h1>Listing studygroups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @studygroups.each do |studygroup| %>
+      <tr>
+        <td><%= studygroup.name %></td>
+        <td><%= studygroup.description %></td>
+        <td><%= studygroup.location %></td>
+        <td><%= studygroup.time %></td>
+        <td><%= link_to 'Show', studygroup %></td>
+        <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
+        <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Studygroup', new_studygroup_path %>

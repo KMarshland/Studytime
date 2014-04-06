@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+    <tr>
+      <td>
+        <strong>Name:</strong>
+      </td>
+      <td>
+         <%= @studygroup.name %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Description:</strong>
+      </td>
+      <td>
+         <%= @studygroup.description %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Location:</strong>
+      </td>
+      <td>
+        <%= @studygroup.location %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <strong>Time:</strong>
+      </td>
+      <td>
+        <%= @studygroup.time %>
+      </td>
+    </tr>
+</table>
+
+<%= link_to 'Edit', edit_studygroup_path(@studygroup) %> |
+<%= link_to 'Back', studygroups_path %>
