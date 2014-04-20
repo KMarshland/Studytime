@@ -1,16 +1,14 @@
 class CreateStudygroups < ActiveRecord::Migration
   def change
+    drop_table :studygroups
     create_table :studygroups do |t|
-      t.int :hour
-      t.int :minute
-      t.boolean :am
       t.string :host
-      t.int :daysFromNow
       t.string :streetNumber
       t.string :streetName
       t.string :city
       t.string :state
-      t.int :zipcode
+      t.integer :zipcode
+      t.datetime :when
 
       t.timestamps
     end

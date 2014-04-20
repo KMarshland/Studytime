@@ -69,6 +69,6 @@ class StudygroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def studygroup_params
-      params.require(:studygroup).permit(:hour, :minute, :am, :host, :daysFromNow, :streetNumber, :streetName, :city, :state, :zipcode)
+      params.require(:studygroup).permit(:host, :streetNumber, :streetName, :city, :state, :zipcode, :when)
     end
 end

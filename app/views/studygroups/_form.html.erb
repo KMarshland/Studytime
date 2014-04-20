@@ -12,28 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :hour %><br>
-    <%= f.text_field :hour %>
-  </div>
-  <div class="field">
-    <%= f.label :minute %><br>
-    <%= f.text_field :minute %>
-  </div>
-  <div class="field">
-    <%= f.label :am %><br>
-    <%= f.check_box :am %>
-  </div>
-  <div class="field">
     <%= f.label :host %><br>
     <%= f.text_field :host %>
   </div>
   <div class="field">
-    <%= f.label :daysFromNow %><br>
-    <%= f.text_field :daysFromNow %>
-  </div>
-  <div class="field">
     <%= f.label :streetNumber %><br>
-    <%= f.text_field :streetNumber %>
+    <%= f.text_field :streetNumber, title: 'Street Number' %>
   </div>
   <div class="field">
     <%= f.label :streetName %><br>
@@ -49,7 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
+    <%= f.number_field :zipcode %>
+  </div>
+  <div class="field">
+    <%= f.label :when %><br>
+    <%= f.datetime_select :when, ampm: true, discard_year: true %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,4 +1,6 @@
 Studytime::Application.routes.draw do
+  resources :addresses
+
   resources :studygroups
 
   get "static_pages/home"

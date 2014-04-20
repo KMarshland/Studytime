@@ -1,28 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Hour:</strong>
-  <%= @studygroup.hour %>
-</p>
-
-<p>
-  <strong>Minute:</strong>
-  <%= @studygroup.minute %>
-</p>
-
-<p>
-  <strong>Am:</strong>
-  <%= @studygroup.am %>
-</p>
-
-<p>
   <strong>Host:</strong>
   <%= @studygroup.host %>
-</p>
-
-<p>
-  <strong>Daysfromnow:</strong>
-  <%= @studygroup.daysFromNow %>
 </p>
 
 <p>
@@ -48,6 +28,11 @@
 <p>
   <strong>Zipcode:</strong>
   <%= @studygroup.zipcode %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @studygroup.when %>
 </p>
 
 <%= link_to 'Edit', edit_studygroup_path(@studygroup) %> |
