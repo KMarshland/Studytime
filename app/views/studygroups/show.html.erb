@@ -1,42 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<table>
-    <tr>
-      <td>
-        <strong>Name:</strong>
-      </td>
-      <td>
-         <%= @studygroup.name %>
-      </td>
-    </tr>
+<p>
+  <strong>Hour:</strong>
+  <%= @studygroup.hour %>
+</p>
 
-    <tr>
-      <td>
-        <strong>Description:</strong>
-      </td>
-      <td>
-         <%= @studygroup.description %>
-      </td>
-    </tr>
+<p>
+  <strong>Minute:</strong>
+  <%= @studygroup.minute %>
+</p>
 
-    <tr>
-      <td>
-        <strong>Location:</strong>
-      </td>
-      <td>
-        <%= @studygroup.location %>
-      </td>
-    </tr>
+<p>
+  <strong>Am:</strong>
+  <%= @studygroup.am %>
+</p>
 
-    <tr>
-      <td>
-        <strong>Time:</strong>
-      </td>
-      <td>
-        <%= @studygroup.time %>
-      </td>
-    </tr>
-</table>
+<p>
+  <strong>Host:</strong>
+  <%= @studygroup.host %>
+</p>
+
+<p>
+  <strong>Daysfromnow:</strong>
+  <%= @studygroup.daysFromNow %>
+</p>
+
+<p>
+  <strong>Streetnumber:</strong>
+  <%= @studygroup.streetNumber %>
+</p>
+
+<p>
+  <strong>Streetname:</strong>
+  <%= @studygroup.streetName %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @studygroup.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @studygroup.state %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @studygroup.zipcode %>
+</p>
 
 <%= link_to 'Edit', edit_studygroup_path(@studygroup) %> |
 <%= link_to 'Back', studygroups_path %>

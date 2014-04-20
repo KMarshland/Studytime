@@ -11,15 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406194107) do
+ActiveRecord::Schema.define(version: 20140407211253) do
 
   create_table "studygroups", force: true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "location"
     t.string   "time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "street_number"
+    t.string   "street_name"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.integer  "day"
+    t.integer  "month"
+    t.integer  "year"
+    t.integer  "hour"
+    t.integer  "minute"
   end
 
 end

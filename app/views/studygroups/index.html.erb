@@ -3,10 +3,16 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Location</th>
-      <th>Time</th>
+      <th>Hour</th>
+      <th>Minute</th>
+      <th>Am</th>
+      <th>Host</th>
+      <th>Daysfromnow</th>
+      <th>Streetnumber</th>
+      <th>Streetname</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zipcode</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +22,16 @@
   <tbody>
     <% @studygroups.each do |studygroup| %>
       <tr>
-        <td><%= studygroup.name %></td>
-        <td><%= studygroup.description %></td>
-        <td><%= studygroup.location %></td>
-        <td><%= studygroup.time %></td>
+        <td><%= studygroup.hour %></td>
+        <td><%= studygroup.minute %></td>
+        <td><%= studygroup.am %></td>
+        <td><%= studygroup.host %></td>
+        <td><%= studygroup.daysFromNow %></td>
+        <td><%= studygroup.streetNumber %></td>
+        <td><%= studygroup.streetName %></td>
+        <td><%= studygroup.city %></td>
+        <td><%= studygroup.state %></td>
+        <td><%= studygroup.zipcode %></td>
         <td><%= link_to 'Show', studygroup %></td>
         <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
         <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
