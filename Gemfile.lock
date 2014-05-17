@@ -141,7 +141,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-google-oauth2 (~> 0.2.1)
-  pg (= 0.15.1)
+  pg
   rails (= 4.0.0)
   rails_12factor (= 0.0.2)
   sass-rails (~> 4.0.0)
