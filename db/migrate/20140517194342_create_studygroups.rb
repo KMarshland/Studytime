@@ -1,6 +1,6 @@
 class CreateStudygroups < ActiveRecord::Migration
   def change
-    drop_table :studygroups
+    #drop_table :studygroups
     create_table :studygroups do |t|
       t.time :when
       t.string :where
