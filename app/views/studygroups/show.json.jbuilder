@@ -1,1 +1,1 @@
-json.extract! @studygroup, :id, :host, :streetNumber, :streetName, :city, :state, :zipcode, :when, :created_at, :updated_at
+json.extract! @studygroup, :id, :when, :where, :daysFromNow, :websiteLink, :created_at, :updated_at

@@ -1,4 +1,4 @@
 json.array!(@studygroups) do |studygroup|
-  json.extract! studygroup, :id, :host, :streetNumber, :streetName, :city, :state, :zipcode, :when
+  json.extract! studygroup, :id, :when, :where, :daysFromNow, :websiteLink
   json.url studygroup_url(studygroup, format: :json)
 end

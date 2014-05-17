@@ -1,15 +1,30 @@
 Studytime::Application.routes.draw do
-  resources :addresses
-
+  get "sessions/create"
+  get "sessions/destroy"
+  get "home/show"
   resources :studygroups
 
-  get "static_pages/home"
+  resources :addresses
+
+  #get "static_pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root :to => 'static_pages#home'
+  #root :to => 'static_pages#home'
   # root 'static_pages_home_path'
+
+  #oauth stuff
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
+
+  root to: "home#show"
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -3,13 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Host</th>
-      <th>Streetnumber</th>
-      <th>Streetname</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zipcode</th>
       <th>When</th>
+      <th>Where</th>
+      <th>Daysfromnow</th>
+      <th>Websitelink</th>
       <th></th>
       <th></th>
       <th></th>
@@ -19,13 +16,10 @@
   <tbody>
     <% @studygroups.each do |studygroup| %>
       <tr>
-        <td><%= studygroup.host %></td>
-        <td><%= studygroup.streetNumber %></td>
-        <td><%= studygroup.streetName %></td>
-        <td><%= studygroup.city %></td>
-        <td><%= studygroup.state %></td>
-        <td><%= studygroup.zipcode %></td>
         <td><%= studygroup.when %></td>
+        <td><%= studygroup.where %></td>
+        <td><%= studygroup.daysFromNow %></td>
+        <td><%= studygroup.websiteLink %></td>
         <td><%= link_to 'Show', studygroup %></td>
         <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
         <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>

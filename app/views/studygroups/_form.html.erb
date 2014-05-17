@@ -12,32 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :host %><br>
-    <%= f.text_field :host %>
-  </div>
-  <div class="field">
-    <%= f.label :streetNumber %><br>
-    <%= f.text_field :streetNumber, title: 'Street Number' %>
-  </div>
-  <div class="field">
-    <%= f.label :streetName %><br>
-    <%= f.text_field :streetName %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.number_field :zipcode %>
-  </div>
-  <div class="field">
     <%= f.label :when %><br>
-    <%= f.datetime_select :when, ampm: true, discard_year: true %>
+    <%= f.time_select :when %>
+  </div>
+  <div class="field">
+    <%= f.label :where %><br>
+    <%= f.text_field :where %>
+  </div>
+  <div class="field">
+    <%= f.label :daysFromNow %><br>
+    <%= f.select(:daysFromNow, options_for_select([['Today', '0'], ['Tomorrow', '1'], ['Day after tomorrow', '2']])) %>
+  </div>
+  <div class="field">
+    <%= f.label :websiteLink %><br>
+    <%= f.text_field :websiteLink %>
   </div>
   <div class="actions">
     <%= f.submit %>

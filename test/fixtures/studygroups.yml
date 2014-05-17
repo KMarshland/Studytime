@@ -1,19 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  host: MyString
-  streetNumber: MyString
-  streetName: MyString
-  city: MyString
-  state: MyString
-  zipcode: 1
-  when: 2014-04-20 14:33:44
+  when: 2014-05-17 12:43:42
+  where: MyString
+  daysFromNow: 1
+  websiteLink: MyString
 
 two:
-  host: MyString
-  streetNumber: MyString
-  streetName: MyString
-  city: MyString
-  state: MyString
-  zipcode: 1
-  when: 2014-04-20 14:33:44
+  when: 2014-05-17 12:43:42
+  where: MyString
+  daysFromNow: 1
+  websiteLink: MyString

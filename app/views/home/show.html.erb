@@ -1,2 +1,6 @@
 <h1>Studytime</h1>
 <p>This is the homepage. Would you like anything? Tea? Coffee? Snacks perhaps?</p>
+
+<% if current_user %>
+    <%= link_to "View studygroups", studygroups_path %>
+<% end %>

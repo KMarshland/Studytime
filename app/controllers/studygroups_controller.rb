@@ -15,6 +15,8 @@ class StudygroupsController < ApplicationController
   # GET /studygroups/new
   def new
     @studygroup = Studygroup.new
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @studygroup.update_attribute(:host_id, @current_user.id)
   end
 
   # GET /studygroups/1/edit
@@ -69,6 +71,6 @@ class StudygroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def studygroup_params
-      params.require(:studygroup).permit(:host, :streetNumber, :streetName, :city, :state, :zipcode, :when)
+      params.require(:studygroup).permit(:when, :where, :daysFromNow, :websiteLink)
     end
 end

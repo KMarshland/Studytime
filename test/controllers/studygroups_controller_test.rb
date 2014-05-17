@@ -18,7 +18,7 @@ class StudygroupsControllerTest < ActionController::TestCase
 
   test "should create studygroup" do
     assert_difference('Studygroup.count') do
-      post :create, studygroup: { city: @studygroup.city, host: @studygroup.host, state: @studygroup.state, streetName: @studygroup.streetName, streetNumber: @studygroup.streetNumber, when: @studygroup.when, zipcode: @studygroup.zipcode }
+      post :create, studygroup: { daysFromNow: @studygroup.daysFromNow, websiteLink: @studygroup.websiteLink, when: @studygroup.when, where: @studygroup.where }
     end
 
     assert_redirected_to studygroup_path(assigns(:studygroup))
@@ -35,7 +35,7 @@ class StudygroupsControllerTest < ActionController::TestCase
   end
 
   test "should update studygroup" do
-    patch :update, id: @studygroup, studygroup: { city: @studygroup.city, host: @studygroup.host, state: @studygroup.state, streetName: @studygroup.streetName, streetNumber: @studygroup.streetNumber, when: @studygroup.when, zipcode: @studygroup.zipcode }
+    patch :update, id: @studygroup, studygroup: { daysFromNow: @studygroup.daysFromNow, websiteLink: @studygroup.websiteLink, when: @studygroup.when, where: @studygroup.where }
     assert_redirected_to studygroup_path(assigns(:studygroup))
   end
 
