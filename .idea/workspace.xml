@@ -33,11 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20140517201118_add_days_to_studygroup.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="20140517201118_add_days_to_studygroup.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20140517201118_add_days_to_studygroup.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.11415525" vertical-offset="0" max-vertical-offset="657">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20140517202927_create_users.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20140517202927_create_users.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3196347" vertical-offset="0" max-vertical-offset="657">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -130,7 +140,6 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140517194342_create_studygroups.rb" />
         <option value="$PROJECT_DIR$/app/views/studygroups/_form.html.erb" />
-        <option value="$PROJECT_DIR$/db/migrate/20140517202927_create_users.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140518194533_add_date_to_studygroup.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140518195622_add_email_to_user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140518201419_add_admin_to_user.rb" />
@@ -153,6 +162,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20140407211253_add_timestuff_to_studygroup.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140517201028_remove_days_from_studygroup.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140517201118_add_days_to_studygroup.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20140517202927_create_users.rb" />
       </list>
     </option>
   </component>
@@ -1052,14 +1062,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20140517202927_create_users.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3196347" vertical-offset="0" max-vertical-offset="657">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/studygroups_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="1620">
@@ -1070,8 +1072,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140517201118_add_days_to_studygroup.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11415525" vertical-offset="0" max-vertical-offset="657">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20140517202927_create_users.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3196347" vertical-offset="0" max-vertical-offset="657">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
