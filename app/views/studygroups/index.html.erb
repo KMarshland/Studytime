@@ -5,8 +5,7 @@
     <tr>
       <th>When</th>
       <th>Where</th>
-      <th>Daysfromnow</th>
-      <th>Websitelink</th>
+      <th>Website link</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,13 +15,21 @@
   <tbody>
     <% @studygroups.each do |studygroup| %>
       <tr>
-        <td><%= studygroup.when %></td>
+        <td>
+          <% if !studygroup.when.nil? %>
+            <%= studygroup.when.strftime "%H:%M UTC"  %>
+          <% end %>
+        </td>
         <td><%= studygroup.where %></td>
-        <td><%= studygroup.daysFromNow %></td>
         <td><%= studygroup.websiteLink %></td>
         <td><%= link_to 'Show', studygroup %></td>
-        <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
-        <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if @current_user.id == studygroup.host_id || @current_user.is_admin %>
+            <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
+        <% end %>
+        <% if @current_user.id == studygroup.host_id || @current_user.is_admin%>
+            <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>

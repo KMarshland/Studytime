@@ -5,11 +5,35 @@ class StudygroupsController < ApplicationController
   # GET /studygroups.json
   def index
     @studygroups = Studygroup.all
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def join_group
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
+    @studygroup = Studygroup.find(params[:id])
+    if !@studygroup.users.include?(@current_user)
+      @studygroup.users << @current_user
+    end
+
+    redirect_to studygroup_path
+  end
+
+  def leave_group
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
+    @studygroup = Studygroup.find(params[:id])
+    if @studygroup.users.include?(@current_user)
+      @studygroup.users.delete(@current_user)
+    end
+
+    redirect_to studygroup_path
   end
 
   # GET /studygroups/1
   # GET /studygroups/1.json
   def show
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   # GET /studygroups/new
@@ -17,6 +41,8 @@ class StudygroupsController < ApplicationController
     @studygroup = Studygroup.new
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
     @studygroup.update_attribute(:host_id, @current_user.id)
+    @studygroup.update_attribute(:daysFromNow, 0)
+    @studygroup.update_attribute(:todaysDate, Date.today())
   end
 
   # GET /studygroups/1/edit

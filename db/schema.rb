@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517213450) do
+ActiveRecord::Schema.define(version: 20140518204401) do
 
   create_table "addresses", force: true do |t|
     t.string   "line1"
@@ -39,9 +39,15 @@ ActiveRecord::Schema.define(version: 20140517213450) do
     t.datetime "updated_at"
     t.integer  "daysFromNow"
     t.integer  "host_id"
+    t.date     "todaysDate"
   end
 
   add_index "studygroups", ["host_id"], name: "index_studygroups_on_host_id"
+
+  create_table "studygroups_users", force: true do |t|
+    t.integer "studygroup_id"
+    t.integer "user_id"
+  end
 
   create_table "users", force: true do |t|
     t.string   "provider"
@@ -51,6 +57,13 @@ ActiveRecord::Schema.define(version: 20140517213450) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.boolean  "is_admin"
+  end
+
+  create_table "users_studygroups", id: false, force: true do |t|
+    t.integer "users_id"
+    t.integer "studygroups_id"
   end
 
 end

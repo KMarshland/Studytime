@@ -4,9 +4,9 @@ Studytime::Application.routes.draw do
   get "home/show"
   resources :studygroups
 
-  resources :addresses
+  #resources :addresses
 
-  #get "static_pages/home"
+  get "static_pages/home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -24,7 +24,18 @@ Studytime::Application.routes.draw do
 
   root to: "home#show"
 
+  #get '/studygroups/join_group', to: 'studygroups#join_group', as: 'join_group'
+  resources :studygroups do
+    member do
+      get :join_group
+      get :leave_group
+      post :join_group
+      post :leave_group
+    end
+  end
 
+  #get "/join_group", to: "studygroups_controller#join_group", :as => :join_group
+  #get "/join_group" => "studygroups_controller#join_group", :as => :join_group
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

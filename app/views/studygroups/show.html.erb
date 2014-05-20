@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Host:</strong>
+  <%= User.all.find(@studygroup.host_id).name %>
+  <%= User.all.find(@studygroup.host_id).anonymized_email %>
+</p>
+
+<p>
   <strong>When:</strong>
-  <%= @studygroup.when %>
+  <%= @studygroup.when.strftime "%H:%M UTC" %>
 </p>
 
 <p>
@@ -11,14 +17,19 @@
 </p>
 
 <p>
-  <strong>Daysfromnow:</strong>
-  <%= @studygroup.daysFromNow %>
-</p>
-
-<p>
-  <strong>Websitelink:</strong>
+  <strong>Website link:</strong>
   <%= @studygroup.websiteLink %>
 </p>
 
-<%= link_to 'Edit', edit_studygroup_path(@studygroup) %> |
+<% if @current_user.id == @studygroup.host_id || @current_user.is_admin %>
+    <%= link_to 'Edit', edit_studygroup_path(@studygroup) %>
+<% end %>
+
 <%= link_to 'Back', studygroups_path %>
+
+<% if !@studygroup.users.include?(@current_user)%>
+    <!--<a href='#' id='executer-button' class='btn btn-default'>Executer</a>-->
+    <%= link_to 'Join', studygroup_path << '/join_group' %>
+<% else %>
+    <%= link_to 'Leave', studygroup_path << '/leave_group' %>
+<% end %>
