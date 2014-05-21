@@ -31,7 +31,7 @@
 
 </p>
 
-<% if @is_host || is_admin %>
+<% if @is_host || is_admin? %>
     <%= link_to 'Edit', edit_studygroup_path(@studygroup) %>
 <% end %>
 

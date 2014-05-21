@@ -1,5 +1,6 @@
 class StudygroupsController < ApplicationController
   before_action :set_studygroup, only: [:show, :edit, :update, :destroy]
+  before_filter :check_logged_in
 
   # GET /studygroups
   # GET /studygroups.json
