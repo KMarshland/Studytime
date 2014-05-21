@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>When</th>
+      <th>Duration</th>
       <th>Where</th>
       <th>Website link</th>
       <th></th>
@@ -20,13 +21,12 @@
             <%= studygroup.when.strftime "%H:%M UTC"  %>
           <% end %>
         </td>
+        <td><%= studygroup.duration %> hours</td>
         <td><%= studygroup.where %></td>
         <td><%= studygroup.websiteLink %></td>
         <td><%= link_to 'Show', studygroup %></td>
         <% if @current_user.id == studygroup.host_id || is_admin? %>
             <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
-        <% end %>
-        <% if @current_user.id == studygroup.host_id || is_admin?%>
             <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
 

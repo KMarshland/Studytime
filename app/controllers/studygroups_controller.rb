@@ -47,6 +47,7 @@ class StudygroupsController < ApplicationController
     @studygroup.update_attribute(:host_id, @current_user.id)
     @studygroup.update_attribute(:daysFromNow, 0)
     @studygroup.update_attribute(:todaysDate, Date.today())
+    @studygroup.update_attribute(:duration, 1)
   end
 
   # GET /studygroups/1/edit

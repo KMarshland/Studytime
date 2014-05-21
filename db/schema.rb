@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140518204401) do
+ActiveRecord::Schema.define(version: 20140521190657) do
 
   create_table "addresses", force: true do |t|
     t.string   "line1"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140518204401) do
     t.integer  "daysFromNow"
     t.integer  "host_id"
     t.date     "todaysDate"
+    t.float    "duration"
   end
 
   add_index "studygroups", ["host_id"], name: "index_studygroups_on_host_id"
