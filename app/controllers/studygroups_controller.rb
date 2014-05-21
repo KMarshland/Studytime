@@ -34,6 +34,9 @@ class StudygroupsController < ApplicationController
   # GET /studygroups/1.json
   def show
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
+    @is_host = @current_user.id == @studygroup.host_id
+    @has_joined_group = @studygroup.users.include?(@current_user)
   end
 
   # GET /studygroups/new

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   helper_method :current_user
   helper_method :gohome
+  helper_method :is_admin
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
       redirect_to '/'
     end
 
+  end
+
+  def is_admin
+    @is_admin = @current_user.is_admin
   end
 
 end

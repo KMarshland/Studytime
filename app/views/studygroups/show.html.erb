@@ -21,15 +21,27 @@
   <%= @studygroup.websiteLink %>
 </p>
 
-<% if @current_user.id == @studygroup.host_id || @current_user.is_admin %>
+<p>
+  <strong>Attendees:</strong>
+  <% @studygroup.users.each do |user| %>
+    <p>
+      <%= user.name %>
+    </p>
+  <% end %>
+
+</p>
+
+<% if @is_host || is_admin %>
     <%= link_to 'Edit', edit_studygroup_path(@studygroup) %>
 <% end %>
 
 <%= link_to 'Back', studygroups_path %>
 
-<% if !@studygroup.users.include?(@current_user)%>
-    <!--<a href='#' id='executer-button' class='btn btn-default'>Executer</a>-->
-    <%= link_to 'Join', studygroup_path << '/join_group' %>
-<% else %>
-    <%= link_to 'Leave', studygroup_path << '/leave_group' %>
+<% if !@is_host%>
+    <% if !@has_joined_group%>
+        <!--<a href='#' id='executer-button' class='btn btn-default'>Executer</a>-->
+        <%= link_to 'Join', studygroup_path << '/join_group' %>
+    <% else %>
+        <%= link_to 'Leave', studygroup_path << '/leave_group' %>
+    <% end %>
 <% end %>
