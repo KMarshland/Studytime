@@ -1,6 +1,12 @@
-task :kai_is_admin => :environment do
+task :get_admins => :environment do
   kai = User.find_by email: 'kaimarshland@gmail.com'
-  puts kai.is_admin
+  puts "Kai is admin? " << kai.is_admin.to_s
+  puts "Other admins: "
+  User.all.each do |user|
+    if user.is_admin
+      puts user.name << '  ' << user.email
+    end
+  end
 end
 
 task :adminify_kai => :environment do
