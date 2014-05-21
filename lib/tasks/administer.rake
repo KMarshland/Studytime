@@ -1,5 +1,6 @@
-task :greet do
-  puts 'Hai'
+task :kai_is_admin => :environment do
+  kai = User.find_by email: 'kaimarshland@gmail.com'
+  puts kai.is_admin
 end
 
 task :adminify_kai => :environment do
