@@ -9,7 +9,12 @@ class StudygroupsController < ApplicationController
     @studygroups = Studygroup.all
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 
-    @studygroups = Studygroup.all
+    @studygroups.each do |studygroup|
+      unless studygroup.valid?
+        @studygroups -= [studygroup]
+      end
+    end
+
   end
 
   def join_group
@@ -37,6 +42,11 @@ class StudygroupsController < ApplicationController
   # GET /studygroups/1
   # GET /studygroups/1.json
   def show
+
+    unless @studygroup.valid?
+      redirect_to studygroups_path
+    end
+
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 
     @is_host = @current_user.id == @studygroup.host_id
