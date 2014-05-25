@@ -1,4 +1,6 @@
 Studytime::Application.routes.draw do
+  resources :test_stuffs
+
   get "sessions/create"
   get "sessions/destroy"
   get "home/show"

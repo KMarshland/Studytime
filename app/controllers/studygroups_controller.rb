@@ -1,12 +1,15 @@
 class StudygroupsController < ApplicationController
   before_action :set_studygroup, only: [:show, :edit, :update, :destroy]
   before_filter :check_logged_in
+  before_filter :check_authorization_level, only: [:edit, :update, :destroy]
 
   # GET /studygroups
   # GET /studygroups.json
   def index
     @studygroups = Studygroup.all
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
+    @studygroups = Studygroup.all
   end
 
   def join_group
@@ -48,7 +51,10 @@ class StudygroupsController < ApplicationController
     @studygroup.update_attribute(:daysFromNow, 0)
     @studygroup.update_attribute(:todaysDate, Date.today())
     @studygroup.update_attribute(:duration, 1)
+
+
   end
+
 
   # GET /studygroups/1/edit
   def edit
@@ -94,6 +100,19 @@ class StudygroupsController < ApplicationController
     end
   end
 
+
+  def check_authorization_level
+    unless is_admin?
+      @studygroup = Studygroup.find(params[:id])
+      @is_host = @current_user.id == @studygroup.host_id
+
+      unless @is_host
+        redirect_to studygroup_path
+        false
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_studygroup
@@ -102,6 +121,6 @@ class StudygroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def studygroup_params
-      params.require(:studygroup).permit(:when, :where, :daysFromNow, :websiteLink)
+      params.require(:studygroup).permit(:when, :where, :websiteLink, :duration)
     end
 end

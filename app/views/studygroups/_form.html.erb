@@ -15,12 +15,6 @@
     <%= f.label :when %><br>
     <%= f.time_select :when %>
   </div>
-
-  <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %> hours
-  </div>
-
   <div class="field">
     <%= f.label :where %><br>
     <%= f.text_field :where %>
@@ -28,6 +22,10 @@
   <div class="field">
     <%= f.label :websiteLink %><br>
     <%= f.text_field :websiteLink %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration %>
   </div>
   <div class="actions">
     <%= f.submit %>

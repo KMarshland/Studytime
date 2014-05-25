@@ -2,23 +2,23 @@
 
 <table>
   <thead>
-    <tr>
-      <th>When</th>
-      <th>Duration</th>
-      <th>Where</th>
-      <th>Website link</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>When</th>
+    <th>Duration</th>
+    <th>Where</th>
+    <th>Website link</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @studygroups.each do |studygroup| %>
+  <% @studygroups.each do |studygroup| %>
       <tr>
         <td>
           <% if !studygroup.when.nil? %>
-            <%= studygroup.when.strftime "%H:%M UTC"  %>
+              <%= studygroup.when.strftime "%H:%M"  %>
           <% end %>
         </td>
         <td><%= studygroup.duration %> hours</td>
@@ -31,7 +31,7 @@
         <% end %>
 
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
