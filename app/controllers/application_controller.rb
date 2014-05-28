@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin?
-    @is_admin = @current_user.is_admin?
+    @is_admin = current_user.is_admin?
   end
 
 end

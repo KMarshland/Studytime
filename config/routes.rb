@@ -5,6 +5,7 @@ Studytime::Application.routes.draw do
   get "sessions/destroy"
   get "home/show"
   resources :studygroups
+  resources :users
 
   #resources :addresses
 

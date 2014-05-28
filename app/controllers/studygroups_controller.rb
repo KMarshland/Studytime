@@ -10,7 +10,7 @@ class StudygroupsController < ApplicationController
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 
     @studygroups.each do |studygroup|
-      unless studygroup.valid?
+      unless studygroup.valid? && studygroup.is_in_future
         @studygroups -= [studygroup]
       end
     end
