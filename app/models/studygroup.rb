@@ -3,6 +3,7 @@ class Studygroup < ActiveRecord::Base
   validates :when, presence: true
   validates :where, presence: true
   validates :duration, presence: true
+  validate :validate_time
 
   has_and_belongs_to_many :users
 
@@ -11,6 +12,11 @@ class Studygroup < ActiveRecord::Base
   end
 
   def time_is_in_future
+
+    if self.when.nil?
+      return false
+    end
+
     if Time.now.hour < self.when.hour
       return true
     elsif Time.now.hour == self.when.hour
@@ -21,6 +27,11 @@ class Studygroup < ActiveRecord::Base
   def date_is_in_future
     self.todaysDate > Date.today - 1
     #true
+  end
+
+  def validate_time
+    errors.add(:when, " must be in future") unless
+          self.is_in_future
   end
 
 end
