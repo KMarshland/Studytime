@@ -17,15 +17,15 @@ class Studygroup < ActiveRecord::Base
       return false
     end
 
-    if Time.now.hour < self.when.hour
+    if Time.zone.now.hour < self.when.hour
       return true
-    elsif Time.now.hour == self.when.hour
-      return Time.now.min < self.when.min
+    elsif Time.now.zone.hour == self.when.hour
+      return Time.zone.now.min < self.when.min
     end
   end
 
   def date_is_in_future
-    self.todaysDate > Date.today - 1
+    self.todaysDate > Date.today.in_time_zone - 1
     #true
   end
 
