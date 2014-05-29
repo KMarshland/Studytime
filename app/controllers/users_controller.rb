@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authorize, except: [:show, :edit]
-  before_filter :check_identity, only: [:show, :edit]
+  before_filter :authorize, except: [:show, :edit, :update]
+  before_filter :check_identity, only: [:show, :edit, :update]
 
 
   # GET /users

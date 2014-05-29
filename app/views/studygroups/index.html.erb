@@ -1,40 +1,99 @@
-<h1>Listing studygroups</h1>
-
-<table>
-  <thead>
-  <tr>
-    <th>When</th>
-    <th>Duration</th>
-    <th>Where</th>
-    <th>Website link</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @studygroups.each do |studygroup| %>
-      <tr>
-        <td>
-          <% if !studygroup.when.nil? %>
-              <%= studygroup.when.strftime "%H:%M"  %>
-          <% end %>
-        </td>
-        <td><%= studygroup.duration %> hours</td>
-        <td><%= studygroup.where %></td>
-        <td><%= studygroup.websiteLink %></td>
-        <td><%= link_to 'Show', studygroup %></td>
-        <% if @current_user.id == studygroup.host_id || is_admin? %>
-            <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
-            <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
 <br>
 
-<%= link_to 'New Studygroup', new_studygroup_path %>
+<div id="sidebar">
+    <h2>Joined Studygroups</h2>
+
+    <table>
+      <thead>
+      <tr>
+        <th>When</th>
+        <th>Duration</th>
+        <th>Where</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @joined_study_groups.each do |studygroup| %>
+          <tr>
+            <td>
+              <% if !studygroup.when.nil? %>
+                  <%= studygroup.when.strftime "%H:%M"  %>
+              <% end %>
+            </td>
+            <td><%= studygroup.duration %> hours</td>
+            <td><%= studygroup.where %></td>
+            <td><%= link_to 'Show', studygroup, remote: true %></td>
+
+            <% if is_host_of(studygroup) %>
+                <td></td>
+            <% else %>
+                <td><%= link_to 'Leave', leave_group_studygroup_path(studygroup) %></td>
+            <% end %>
+
+            <% if @current_user.id == studygroup.host_id || is_admin? %>
+                <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
+                <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <h2>Not Joined Studygroups</h2>
+
+    <table>
+      <thead>
+      <tr>
+        <th>When</th>
+        <th>Duration</th>
+        <th>Where</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @unjoined_study_groups.each do |studygroup| %>
+          <tr>
+            <td>
+              <% if !studygroup.when.nil? %>
+                  <%= studygroup.when.strftime "%H:%M"  %>
+              <% end %>
+            </td>
+            <td><%= studygroup.duration %> hours</td>
+            <td><%= studygroup.where %></td>
+
+            <% if is_host_of(studygroup) %>
+                <td></td>
+            <% else %>
+                <td><%= link_to 'Join', join_group_studygroup_path(studygroup) %></td>
+            <% end %>
+
+            <td><%= link_to 'Show', studygroup, remote: true %></td>
+            <% if @current_user.id == studygroup.host_id || is_admin? %>
+                <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
+                <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Studygroup', new_studygroup_path %>
+</div>
+
+<div id="body">
+    <%= render "layouts/modal" %>
+</div>

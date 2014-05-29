@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Host:</strong>
+  <%= User.all.find(@studygroup.host_id).name %>
+  <%= User.all.find(@studygroup.host_id).anonymized_email %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @studygroup.when.strftime "%H:%M UTC" %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @studygroup.duration %>
+  hours
+</p>
+
+<p>
+  <strong>Where:</strong>
+  <%= @studygroup.where %>
+</p>
+
+<p>
+  <strong>Website link:</strong>
+  <%= @studygroup.websiteLink %>
+</p>
+
+<% if is_admin? %>
+    <p>
+      <strong>Date:</strong>
+      <%= @studygroup.todaysDate %>
+    </p>
+<% end %>
+
+<p>
+  <strong>Attendees:</strong>
+  <% @studygroup.users.each do |user| %>
+    <p>
+      <%= user.name %>
+    </p>
+<% end %>
+
+</p>
+
+<% if @is_host || is_admin? %>
+    <%= link_to 'Edit', edit_studygroup_path(@studygroup) %>
+<% end %>
+
+<%= link_to 'Back', studygroups_path %>
+
+<% if !@is_host%>
+    <% if !@has_joined_group%>
+        <!--<a href='#' id='executer-button' class='btn btn-default'>Executer</a>-->
+        <%= link_to 'Join', studygroup_path << '/join_group' %>
+    <% else %>
+        <%= link_to 'Leave', studygroup_path << '/leave_group' %>
+    <% end %>
+<% end %>

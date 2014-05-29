@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :go_home
   helper_method :is_admin?
   helper_method :logged_in?
+  helper_method :current_user_path
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -41,6 +42,11 @@ class ApplicationController < ActionController::Base
 
   def is_admin?
     @is_admin = current_user.is_admin?
+  end
+
+  def current_user_path
+    cid = current_user.id
+    users_path << '/' << cid.to_s
   end
 
 end

@@ -1,0 +1,9 @@
+$modal = $('.modal'),
+        $modalBody = $('.modal .modal-body'),
+        $modalHeading = $('.modal .modal-heading');
+        $modalFooter = $('.modal .modal-footer');
+$modalHeading.html("Heading");
+$modalBody.html("<%= escape_javascript(render @studygroup) %>");
+$modalFooter.html("<br><a href='#' class='btn' data-dismiss='modal'>Close</a>");
+
+$modal.modal();

@@ -3,6 +3,8 @@ class StudygroupsController < ApplicationController
   before_filter :check_logged_in
   before_filter :check_authorization_level, only: [:edit, :update, :destroy]
 
+  helper_method :is_host_of
+
   # GET /studygroups
   # GET /studygroups.json
   def index
@@ -12,6 +14,19 @@ class StudygroupsController < ApplicationController
     @studygroups.each do |studygroup|
       unless studygroup.valid? && studygroup.is_in_future
         @studygroups -= [studygroup]
+      end
+    end
+
+    @studygroups.sort_by! {|obj| obj.when  unless obj.blank?}
+
+    @joined_study_groups = []
+    @unjoined_study_groups = []
+
+    @studygroups.each do |studygroup|
+      if studygroup.users.include?(@current_user)
+        @joined_study_groups.append(studygroup)
+      elsif
+        @unjoined_study_groups.append(studygroup)
       end
     end
 
@@ -51,6 +66,12 @@ class StudygroupsController < ApplicationController
 
     @is_host = @current_user.id == @studygroup.host_id
     @has_joined_group = @studygroup.users.include?(@current_user)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+      format.json { render json: @studygroup }
+    end
   end
 
   # GET /studygroups/new
@@ -60,6 +81,7 @@ class StudygroupsController < ApplicationController
     @studygroup.update_attribute(:host_id, @current_user.id)
     @studygroup.update_attribute(:daysFromNow, 0)
     @studygroup.update_attribute(:todaysDate, Date.today())
+    @studygroup.update_attribute(:when, Time.now())
     @studygroup.update_attribute(:duration, 1)
 
 
@@ -110,6 +132,9 @@ class StudygroupsController < ApplicationController
     end
   end
 
+  def is_host_of(studygroup)
+     @current_user.id == studygroup.host_id
+  end
 
   def check_authorization_level
     unless is_admin?

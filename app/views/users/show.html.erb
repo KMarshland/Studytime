@@ -10,12 +10,12 @@
   <%= @user.email %>
 </p>
 
-<p>
-  <strong>Is admin:</strong>
-  <%= @user.is_admin %>
-</p>
-
-<% if @user.is_admin %>
-    <%= link_to 'Edit', edit_user_path(@user) %> |
+<% if is_admin? %>
+    <p>
+      <strong>Is admin:</strong>
+      <%= @user.is_admin %>
+    </p>
 <% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
