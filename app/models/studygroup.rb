@@ -14,7 +14,7 @@ class Studygroup < ActiveRecord::Base
   def time_is_in_future
 
     if self.when.nil?
-      return false
+      return true
     end
 
     if Time.zone.now.hour < self.when.hour
@@ -25,8 +25,9 @@ class Studygroup < ActiveRecord::Base
   end
 
   def date_is_in_future
-    self.todaysDate > Date.today.in_time_zone - 1
-    #true
+    td = self.todaysDate.in_time_zone
+    ty = Date.today.in_time_zone - 1
+    td > ty
   end
 
   def validate_time

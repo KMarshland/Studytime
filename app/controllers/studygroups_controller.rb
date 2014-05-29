@@ -80,8 +80,8 @@ class StudygroupsController < ApplicationController
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
     @studygroup.update_attribute(:host_id, @current_user.id)
     @studygroup.update_attribute(:daysFromNow, 0)
-    @studygroup.update_attribute(:todaysDate, Date.today())
-    @studygroup.update_attribute(:when, Time.now())
+    @studygroup.update_attribute(:todaysDate, Date.today.in_time_zone)
+    @studygroup.update_attribute(:when, Time.zone.now)
     @studygroup.update_attribute(:duration, 1)
 
 
