@@ -19,7 +19,7 @@ class Studygroup < ActiveRecord::Base
 
     if Time.zone.now.hour < self.when.hour
       return true
-    elsif Time.now.zone.hour == self.when.hour
+    elsif Time.zone.now.hour == self.when.hour
       return Time.zone.now.min < self.when.min
     end
   end
