@@ -19,8 +19,8 @@ class Studygroup < ActiveRecord::Base
   end
 
   def date_is_in_future
-    self.todaysDate > Date.yesterday
-    true
+    self.todaysDate > Date.today - 1
+    #true
   end
 
 end

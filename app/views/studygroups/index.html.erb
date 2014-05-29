@@ -26,13 +26,15 @@
             </td>
             <td><%= studygroup.duration %> hours</td>
             <td><%= studygroup.where %></td>
-            <td><%= link_to 'Show', studygroup, remote: true %></td>
+
 
             <% if is_host_of(studygroup) %>
                 <td></td>
             <% else %>
                 <td><%= link_to 'Leave', leave_group_studygroup_path(studygroup) %></td>
             <% end %>
+
+            <td><%= link_to 'Show', studygroup, remote: true %></td>
 
             <% if @current_user.id == studygroup.host_id || is_admin? %>
                 <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>

@@ -40,7 +40,7 @@ class StudygroupsController < ApplicationController
       @studygroup.users << @current_user
     end
 
-    redirect_to studygroup_path
+    redirect_to studygroups_path
   end
 
   def leave_group
@@ -51,7 +51,7 @@ class StudygroupsController < ApplicationController
       @studygroup.users.delete(@current_user)
     end
 
-    redirect_to studygroup_path
+    redirect_to studygroups_path
   end
 
   # GET /studygroups/1
