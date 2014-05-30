@@ -90,7 +90,11 @@ class StudygroupsController < ApplicationController
     @studygroup.update_attribute(:when, Time.zone.now)
     @studygroup.update_attribute(:duration, 1)
 
-
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+      format.json { render json: @studygroup }
+    end
   end
 
 

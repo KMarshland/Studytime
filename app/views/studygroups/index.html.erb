@@ -38,7 +38,7 @@
                 <td><%= link_to 'Leave', leave_group_studygroup_path(studygroup) %></td>
             <% end %>
 
-            <td><%= link_to 'Show', studygroup, remote: true %></td>
+            <td><%= link_to 'Show', studygroup, remote: true, 'data-no-turbolink' => true %></td>
 
             <% if @current_user.id == studygroup.host_id || is_admin? %>
                 <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
@@ -84,7 +84,7 @@
                 <td><%= link_to 'Join', join_group_studygroup_path(studygroup) %></td>
             <% end %>
 
-            <td><%= link_to 'Show', studygroup, remote: true %></td>
+            <td><%= link_to 'Show', studygroup, remote: true, 'data-no-turbolink' => true %></td>
             <% if @current_user.id == studygroup.host_id || is_admin? %>
                 <td><%= link_to 'Edit', edit_studygroup_path(studygroup) %></td>
                 <td><%= link_to 'Destroy', studygroup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -97,11 +97,12 @@
 
     <br>
 
-    <%= link_to 'New Studygroup', new_studygroup_path %>
+    <%= link_to 'New Studygroup', new_studygroup_path, remote: true %>
 </div>
 
 <div id="body">
     <%= render "layouts/modal" %>
+    <%= render "layouts/form_modal" %>
 
     <div style='width: 800px;'>
         <div id="map" style='width: 800px; height: 400px;'></div>
