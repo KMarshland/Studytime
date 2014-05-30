@@ -8,6 +8,13 @@ class StudygroupsController < ApplicationController
   # GET /studygroups
   # GET /studygroups.json
   def index
+
+    current_url = request.original_url.to_s
+    regexp = /#\s*$/
+    if (current_url.match(regexp)).nil?
+      #redirect_to current_url << '#'
+    end
+
     @studygroups = Studygroup.all
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
 
