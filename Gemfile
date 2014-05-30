@@ -27,6 +27,8 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'gmaps4rails'
+gem 'geocoder'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

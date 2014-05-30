@@ -23,11 +23,17 @@ class StudygroupsController < ApplicationController
     @unjoined_study_groups = []
 
     @studygroups.each do |studygroup|
-      if studygroup.users.include?(@current_user)
+      if studygroup.users.include?(@current_user) || @current_user.id == studygroup.host_id
         @joined_study_groups.append(studygroup)
       elsif
         @unjoined_study_groups.append(studygroup)
       end
+    end
+
+    @hash = Gmaps4rails.build_markers(@studygroups) do |studygroup, marker|
+      marker.lat studygroup.latitude
+      marker.lng studygroup.longitude
+      marker.infowindow  studygroup.when.strftime "%H:%M"
     end
 
   end
