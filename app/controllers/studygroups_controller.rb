@@ -33,7 +33,7 @@ class StudygroupsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@studygroups) do |studygroup, marker|
       marker.lat studygroup.latitude
       marker.lng studygroup.longitude
-      marker.infowindow  studygroup.when.strftime "%H:%M"
+      marker.infowindow  studygroup.strftime
     end
 
   end
@@ -109,7 +109,7 @@ class StudygroupsController < ApplicationController
 
     respond_to do |format|
       if @studygroup.save
-        format.html { redirect_to @studygroup, notice: 'Studygroup was successfully created.' }
+        format.html { redirect_to studygroups_path, notice: 'Studygroup was successfully created.' }
         format.json { render action: 'show', status: :created, location: @studygroup }
       else
         format.html { render action: 'new' }
@@ -123,7 +123,7 @@ class StudygroupsController < ApplicationController
   def update
     respond_to do |format|
       if @studygroup.update(studygroup_params)
-        format.html { redirect_to @studygroup, notice: 'Studygroup was successfully updated.' }
+        format.html { redirect_to studygroups_path, notice: 'Studygroup was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -1,7 +1,7 @@
-$modal = $('.modal'),
-        $modalBody = $('.modal .modal-body'),
-        $modalHeading = $('.modal .modal-heading');
-        $modalFooter = $('.modal .modal-footer');
+$modal = $('#modal'),
+        $modalBody = $('#modal-body'),
+        $modalHeading = $('#modal-heading');
+        $modalFooter = $('#modal-footer');
 $modalHeading.html("Heading");
 $modalBody.html("<%= escape_javascript(render @studygroup) %>");
 $modalFooter.html("<br><a href='#' class='btn' data-dismiss='modal'>Close</a>");

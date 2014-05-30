@@ -10,6 +10,10 @@ class Studygroup < ActiveRecord::Base
   geocoded_by :where
   after_validation :calc_geocode
 
+  def strftime
+    self.when.strftime("%I:%M %p")
+  end
+
   def calc_geocode
 
     if self.where.nil?
